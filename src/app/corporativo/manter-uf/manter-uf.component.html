@@ -1,0 +1,21 @@
+<p>manter-uf works!</p>
+
+<form [formGroup]="formulario" (ngSubmit)="salvar()">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Digite o nome</mat-label>
+        <input matInput placeholder="Nome" formControlName="nome">
+      </mat-form-field>
+    
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Digite a sigla</mat-label>
+        <input matInput placeholder="Nome" formControlName="sigla">
+      </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Salvar</button>
+</form>
+
+
+
+

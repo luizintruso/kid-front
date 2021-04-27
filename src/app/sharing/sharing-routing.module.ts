@@ -1,0 +1,11 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { SharingComponent } from './sharing.component';
+
+const routes: Routes = [{ path: 'teste', component: SharingComponent }];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class SharingRoutingModule { }
