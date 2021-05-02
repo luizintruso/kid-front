@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Pessoa } from '../classes/pessoa';
+import { Pessoafisica } from '../classes/pessoafisica';
 import { PessoaService } from '../services/pessoa.service';
 
 export interface PeriodicElement {
@@ -30,37 +31,55 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ManterPessoaComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'numCpfCnpj', 'editar', 'excluir'];
+  displayedColumns: string[] = ['id', 'nome', 'email', 'numCpfCnpj', 'editar', 'excluir'];
   dataSource = ELEMENT_DATA;
 
   constructor(private service:PessoaService) { }
 
-  public formulario: FormGroup;
+  public formularioPessoa: FormGroup;
   public pessoas:Pessoa[] = [];
+  public codTipoPessoa:Number;
+  public formularioPessoaFisica:FormGroup = new FormGroup({});
 
   ngOnInit(pessoa?:Pessoa): void {
     this.service.pesquisar().subscribe(e=>{
       this.pessoas = e;
     })
     
-    this.formulario = new FormGroup({
+    this.formularioPessoa = new FormGroup({
       id: new FormControl(pessoa?.id),
+      nome: new FormControl(pessoa?.nome),
+      email: new FormControl(pessoa?.email),
       numCpfCnpj: new FormControl(pessoa?.numCpfCnpj),
+      codTipoPessoa: new FormControl(pessoa?.codTipoPessoa)
     });
   }
 
   salvar():void{
-    this.formulario.value;
+    let pessoa:Pessoa;
+    if(this.codTipoPessoa==1){
+      pessoa = {...this.formularioPessoa.value,...this.formularioPessoaFisica.value};
+    }else{
     
+    }
+    console.log(pessoa);
+    this.service.salvar(pessoa).subscribe(e=>{
+      this.ngOnInit();
+    });
   }
-
   editar(pessoa: Pessoa):void{
     this.ngOnInit(pessoa);
   }
 
   excluir(pessoa:Pessoa):void{
-    
+    this.service.excluir(pessoa.id).subscribe(e=>{
+      this.ngOnInit();
+    });
   }
 
+  changePessoa(e):void{
+    console.log(e);
+    this.codTipoPessoa = this.formularioPessoa.controls.codTipoPessoa.value;
+  }
 
 }

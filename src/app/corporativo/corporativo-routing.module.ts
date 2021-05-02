@@ -7,7 +7,8 @@ import { ManterUFComponent } from './manter-uf/manter-uf.component';
 
 const routes: Routes = [
                         { path: '', component: CorporativoComponent },
-                        { path: 'uf', component: ManterUFComponent, canActivate: [AuthGuard] }
+                        { path: 'uf', component: ManterUFComponent, canActivate: [AuthGuard] },
+                        { path: 'pessoa', component: ManterPessoaComponent, canActivate: [AuthGuard] }
                         ];
 
 @NgModule({

@@ -1,0 +1,17 @@
+table {
+    width: 90%;
+  }
+
+  .full-width-field {
+    width: 50%;
+  }
+ 
+  mat-form-field{
+     width: 50%;
+ }
+ 
+ .form-control{
+     width: 20%;
+ }
+ 
+ 

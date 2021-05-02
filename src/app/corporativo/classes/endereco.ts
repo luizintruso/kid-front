@@ -5,9 +5,10 @@ import { Uf } from "./uf";
 export class Endereco {
 
     public id:Number;
-    public tipoEndereco:Tipoendereco;
-    public uf:Uf;
-    public pessoa:Pessoa;
+    public codTipoEndereco:Number;
+    public idUf:Number;
+    public idPessoa:Number;
+    
     public cep:Number;
     public cidade:String;
     public sigla:String;
@@ -19,8 +20,6 @@ export class Endereco {
     public dddTelefone:String;
     public telefone:String;
     public ddCelular:String;
-
-   // @Column(name = "celular") -- TODO: arrumar no banco o tipo
-    //public String celular;
+    public celular:String;
 
 }

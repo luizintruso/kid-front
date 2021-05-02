@@ -1,0 +1,13 @@
+<form [formGroup]="formularioPessoaFisica">
+    <div class="form-group">
+        <mat-form-field >
+        <mat-label>Idade</mat-label>
+        <input matInput placeholder="Idade" formControlName="idade">
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <label for="dataNascimento">Data de nascimento</label>
+        <input type="date" class="form-control" name="dataNascimento" id="dataNascimento" >
+    </div>
+</form>

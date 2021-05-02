@@ -1,9 +1,8 @@
 import { Pessoa } from "./pessoa";
 
-export class Pessoajuridica {
+export class Pessoajuridica extends Pessoa{
 
     public id:number;
-    public pessoa:Pessoa;
     public nomeContratoSocial:String;
     public nomeFantasia:String;
     public valorCapitalSocial:Number;

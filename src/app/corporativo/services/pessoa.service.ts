@@ -14,4 +14,12 @@ export class PessoaService {
     return this.http.get <Pessoa[]> ('/corp/pessoas');
   }
 
+  public salvar(pessoa : Pessoa): Observable<Pessoa> {
+    return this.http.post <Pessoa> ('/corp/pessoas', pessoa);
+  }
+  
+  public excluir(id:Number): Observable<void> {
+    return this.http.delete<void> ('/corp/pessoas/'+id);
+  }
+
 }
