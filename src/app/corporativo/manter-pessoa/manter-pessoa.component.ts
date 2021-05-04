@@ -38,7 +38,7 @@ export class ManterPessoaComponent implements OnInit {
 
   public formularioPessoa: FormGroup;
   public pessoas:Pessoa[] = [];
-  public codTipoPessoa:Number;
+  public codTipoPessoa:Number=1;
   public formularioPessoaFisica:FormGroup = new FormGroup({});
 
   ngOnInit(pessoa?:Pessoa): void {

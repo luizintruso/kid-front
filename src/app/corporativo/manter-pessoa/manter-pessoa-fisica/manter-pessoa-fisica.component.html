@@ -1,13 +1,73 @@
 <form [formGroup]="formularioPessoaFisica">
-    <div class="form-group">
-        <mat-form-field >
-        <mat-label>Idade</mat-label>
-        <input matInput placeholder="Idade" formControlName="idade">
-        </mat-form-field>
+    <br>
+
+    <div class="form-group row">
+      <label for="inputNomePai" class="col-sm-1 col-form-label">Nome Pai :</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="inputNomePai" formControlName="nomePai" placeholder="Nome Pai" >
+      </div>
     </div>
 
-    <div class="form-group">
-        <label for="dataNascimento">Data de nascimento</label>
-        <input type="date" class="form-control" name="dataNascimento" id="dataNascimento" >
+    <div class="form-group row" >
+      <label for="inputNomeMae" class="col-sm-1 col-form-label">Nome Mãe :</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="inputNomeMae" formControlName="nomeMae" placeholder="Nome Mãe" >
+      </div>
     </div>
+
+    <div class="form-group row" >
+      <label for="inputnacionalidade" class="col-sm-1 col-form-label">Nacionalidade :</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="inputnacionalidade" formControlName="nacionalidade" >
+      </div>
+      <label for="inputnaturalidade" class="col-sm-1 col-form-label">Naturalidade :</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="inputnaturalidade" formControlName="naturalidade"  >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="inputRG" class="col-sm-1">RG :</label>
+      <div class="col-sm-3">
+        <input type="number" class="form-control" id="inputRH" formControlName="rg" placeholder="RG" >
+      </div>
+
+      <label for="inputRGUF" class="col-sm-1">UF :</label>
+      <div class="col-sm-1">
+          <select id="inputRGUF" class="form-control">
+            <option selected>DF</option>
+            <option>GO</option>
+          </select>
+      </div>
+
+      <label for="inputOrgaoRG" class="col-sm-1 col-form-label">Orgão Emissor :</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="inputOrgaoRG" formControlName="rgOrgaoEmissor" placeholder="Org. Emissor" >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="inputData" class="col-sm-1">Data Nascimento :</label>
+      <div class="col-sm-3">
+        <input type="date" class="form-control" name="dataNascimento" id="dataNascimento" formControlName="dataNascimento" >
+      </div>
+
+      <label for="inputSexo" class="col-sm-1">Sexo :</label>
+      <div class="col-sm-3">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="masculino">
+          <label class="form-check-label" for="masculino">Masculino</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="feminino">
+          <label class="form-check-label" for="feminino">Feminino</label>
+        </div>
+      </div>
+    </div>
+    
 </form>
+
+
+   
+  
+  

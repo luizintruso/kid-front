@@ -17,9 +17,5 @@ export class Endereco {
     public numero:number;
     public descComplemento:String;
     public dataHoraInicio:Date;
-    public dddTelefone:String;
-    public telefone:String;
-    public ddCelular:String;
-    public celular:String;
 
 }

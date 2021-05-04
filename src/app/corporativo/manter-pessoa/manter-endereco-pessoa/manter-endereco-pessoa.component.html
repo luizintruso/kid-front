@@ -1,1 +1,64 @@
-<p>manter-endereco-pessoa works!</p>
+<form [formGroup]="formularioEndereco">
+  <br>
+
+  <div class="form-group row">
+    <label for="inputcep" class="col-sm-1 col-form-label">Cep :</label>
+    <div class="col-sm-2">
+      <input type="number" class="form-control" id="inputcep" formControlName="cep" >
+    </div>
+
+    <label for="inputcidade" class="col-sm-1 col-form-label">Cidade :</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="inputcidade" formControlName="cidade"  >
+    </div>
+
+    <label for="inputRGUF" class="col-sm-1">Estado :</label>
+    <div class="col-sm-1">
+        <select id="inputRGUF" class="form-control">
+          <option selected>DF</option>
+          <option>GO</option>
+        </select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputdescEndereco" class="col-sm-1 col-form-label">Endereço :</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="inputdescEndereco" formControlName="descEndereco" >
+    </div>
+
+    <label for="inputnumero" class="col-sm-1 col-form-label">Número:</label>
+    <div class="col-sm-2">
+      <input type="number" class="form-control" id="inputnumero" formControlName="numero" >
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputdescComplemento" class="col-sm-1 col-form-label">Complemento :</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="inputdescComplemento" formControlName="descComplemento" >
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputbairro" class="col-sm-1 col-form-label">Bairro  :</label>
+    <div class="col-sm-6">
+      <input type="number" class="form-control" id="inputbairro" formControlName="bairro" >
+    </div>
+
+    <label for="inputcodTipoEndereco" class="col-sm-1 col-form-label">Tipo de Endereço:</label>
+    <div class="col-sm-2">
+      <select class="custom-select">
+        <option value="1">Residencial</option>
+        <option value="2">Comercial</option>
+        <option value="3">Outros</option>
+      </select>
+    </div>
+  </div>
+
+</form>
+
+
+ 
+
+
