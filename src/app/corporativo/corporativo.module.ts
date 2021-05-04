@@ -7,6 +7,8 @@ import { SharingModule } from '../sharing/sharing.module';
 import { ManterUFComponent } from './manter-uf/manter-uf.component';
 import { ManterPessoaComponent } from './manter-pessoa/manter-pessoa.component';
 import { ManterPessoaFisicaComponent } from './manter-pessoa/manter-pessoa-fisica/manter-pessoa-fisica.component';
+import { ManterPessoaJuridicaComponent } from './manter-pessoa/manter-pessoa-juridica/manter-pessoa-juridica.component';
+import { ManterEnderecoPessoaComponent } from './manter-pessoa/manter-endereco-pessoa/manter-endereco-pessoa.component';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { ManterPessoaFisicaComponent } from './manter-pessoa/manter-pessoa-fisic
     CorporativoComponent,
     ManterUFComponent,
     ManterPessoaComponent,
-    ManterPessoaFisicaComponent
+    ManterPessoaFisicaComponent,
+    ManterPessoaJuridicaComponent,
+    ManterEnderecoPessoaComponent
   ],
   imports: [
     CommonModule,

@@ -23,8 +23,8 @@
   
           <div class="form-group">
             <mat-form-field >
-                <mat-label>Email</mat-label>
-                <input matInput placeholder="E-mail" formControlName="email">
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="E-mail" formControlName="email" placeholder="name@example.com">
             </mat-form-field>
           </div>
   
@@ -103,11 +103,15 @@
   
       </form>  
       </mat-tab>
-      <mat-tab label="Dados Pessoa Física" [disabled]="codTipoPessoa==1"> 
+      <mat-tab label="Dados Pessoa Física" [disabled]="codTipoPessoa==2" > 
         <app-manter-pessoa-fisica [formularioPessoaFisica]="formularioPessoaFisica"></app-manter-pessoa-fisica>
       </mat-tab>
-      <mat-tab label="Dados Pessoa Jurídica" [disabled]="codTipoPessoa==2"> PJ </mat-tab>
-      <mat-tab label="Endereço"> Edereço </mat-tab>
+      <mat-tab label="Dados Pessoa Jurídica" [disabled]="codTipoPessoa==1"> 
+        <app-manter-pessoa-juridica></app-manter-pessoa-juridica>
+      </mat-tab>
+      <mat-tab label="Endereço"> 
+        <app-manter-endereco-pessoa></app-manter-endereco-pessoa>
+      </mat-tab>
     </mat-tab-group>
     
 </div>
