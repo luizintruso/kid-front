@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Pessoa } from '../classes/pessoa';
-import { Pessoafisica } from '../classes/pessoafisica';
 import { PessoaService } from '../services/pessoa.service';
 
 export interface PeriodicElement {
@@ -31,48 +31,51 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ManterPessoaComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome', 'email', 'numCpfCnpj', 'editar', 'excluir'];
   dataSource = ELEMENT_DATA;
 
-  constructor(private service:PessoaService) { }
+  constructor(private service:PessoaService, private route: ActivatedRoute) {}
 
   public formularioPessoa: FormGroup;
+  public formularioPessoaFisica:FormGroup = new FormGroup({});
+  public formularioPessoaJuridica:FormGroup = new FormGroup({});
+  public formularioEnderecoPessoa:FormGroup = new FormGroup({});
+
   public pessoas:Pessoa[] = [];
   public codTipoPessoa:Number=1;
-  public formularioPessoaFisica:FormGroup = new FormGroup({});
+  
 
   ngOnInit(pessoa?:Pessoa): void {
-    this.service.pesquisar().subscribe(e=>{
-      this.pessoas = e;
-    })
-    
-    this.formularioPessoa = new FormGroup({
-      id: new FormControl(pessoa?.id),
+      const routeParams = this.route.snapshot.paramMap;
+      const id = Number(routeParams.get('id'));
+
+      if(id){
+        this.service.obter(id).subscribe(e=>{
+          console.log(e);
+        });
+      }
+
+      this.formularioPessoa = new FormGroup({
+      codTipoPessoa: new FormControl(pessoa ? pessoa?.codTipoPessoa : 1),
       nome: new FormControl(pessoa?.nome),
       email: new FormControl(pessoa?.email),
       numCpfCnpj: new FormControl(pessoa?.numCpfCnpj),
-      codTipoPessoa: new FormControl(pessoa?.codTipoPessoa)
+      dddTelefone: new FormControl(pessoa?.dddTelefone),
+      telefone: new FormControl(pessoa?.telefone),
+      dddCelular: new FormControl(pessoa?.dddCelular),
+      celular: new FormControl(pessoa?.celular)
     });
   }
 
   salvar():void{
     let pessoa:Pessoa;
-    if(this.codTipoPessoa==1){
-      pessoa = {...this.formularioPessoa.value,...this.formularioPessoaFisica.value};
+     if(this.codTipoPessoa==1){
+      pessoa = {...this.formularioPessoa.value,...this.formularioPessoaFisica.value,};
     }else{
-    
+      pessoa = {...this.formularioPessoa.value,...this.formularioPessoaJuridica.value};
     }
-    console.log(pessoa);
-    this.service.salvar(pessoa).subscribe(e=>{
-      this.ngOnInit();
-    });
-  }
-  editar(pessoa: Pessoa):void{
-    this.ngOnInit(pessoa);
-  }
+    pessoa.endereco = this.formularioEnderecoPessoa.value;
 
-  excluir(pessoa:Pessoa):void{
-    this.service.excluir(pessoa.id).subscribe(e=>{
+    this.service.salvar(pessoa).subscribe(e=>{
       this.ngOnInit();
     });
   }
@@ -81,5 +84,6 @@ export class ManterPessoaComponent implements OnInit {
     console.log(e);
     this.codTipoPessoa = this.formularioPessoa.controls.codTipoPessoa.value;
   }
+ 
 
 }

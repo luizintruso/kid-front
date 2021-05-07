@@ -1,4 +1,5 @@
 import { Identifiers } from "@angular/compiler";
+import { Endereco } from "./endereco";
 
 export class Pessoa {
 
@@ -12,7 +13,7 @@ export class Pessoa {
     public celular:String;
     public numCpfCnpj:String;
     public dataHoraInicio:Date;
-
+    public endereco:Endereco;
 }
 
 

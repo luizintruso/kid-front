@@ -1,4 +1,4 @@
-<form [formGroup]="formularioEndereco">
+<form [formGroup]="formularioEnderecoPessoa">
   <br>
 
   <div class="form-group row">
@@ -14,9 +14,9 @@
 
     <label for="inputRGUF" class="col-sm-1">Estado :</label>
     <div class="col-sm-1">
-        <select id="inputRGUF" class="form-control">
-          <option selected>DF</option>
-          <option>GO</option>
+        <select id="inputRGUF" class="form-control" formControlName="idUf">
+          <option selected value="1">DF</option>
+          <option value="2">GO</option>
         </select>
     </div>
   </div>
@@ -46,14 +46,17 @@
       <input type="number" class="form-control" id="inputbairro" formControlName="bairro" >
     </div>
 
+    <!--
     <label for="inputcodTipoEndereco" class="col-sm-1 col-form-label">Tipo de Endereço:</label>
     <div class="col-sm-2">
-      <select class="custom-select">
+      <select class="custom-select" formControlName="codTipoEndereco">
         <option value="1">Residencial</option>
         <option value="2">Comercial</option>
         <option value="3">Outros</option>
       </select>
     </div>
+  -->
+  
   </div>
 
 </form>

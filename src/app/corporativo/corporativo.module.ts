@@ -9,6 +9,7 @@ import { ManterPessoaComponent } from './manter-pessoa/manter-pessoa.component';
 import { ManterPessoaFisicaComponent } from './manter-pessoa/manter-pessoa-fisica/manter-pessoa-fisica.component';
 import { ManterPessoaJuridicaComponent } from './manter-pessoa/manter-pessoa-juridica/manter-pessoa-juridica.component';
 import { ManterEnderecoPessoaComponent } from './manter-pessoa/manter-endereco-pessoa/manter-endereco-pessoa.component';
+import { ListarPessoaComponent } from './listar-pessoa/listar-pessoa.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ManterEnderecoPessoaComponent } from './manter-pessoa/manter-endereco-p
     ManterPessoaComponent,
     ManterPessoaFisicaComponent,
     ManterPessoaJuridicaComponent,
-    ManterEnderecoPessoaComponent
+    ManterEnderecoPessoaComponent,
+    ListarPessoaComponent
   ],
   imports: [
     CommonModule,

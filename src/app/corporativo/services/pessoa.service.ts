@@ -22,4 +22,8 @@ export class PessoaService {
     return this.http.delete<void> ('/corp/pessoas/'+id);
   }
 
+  public obter(id:Number): Observable<Pessoa> {
+    return this.http.get <Pessoa> ('/corp/pessoas/'+id);
+  }
+
 }

@@ -11,7 +11,6 @@ export class Endereco {
     
     public cep:Number;
     public cidade:String;
-    public sigla:String;
     public bairro:String;
     public descEndereco:String;
     public numero:number;

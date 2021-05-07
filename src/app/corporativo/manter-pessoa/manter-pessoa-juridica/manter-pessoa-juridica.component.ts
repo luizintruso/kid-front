@@ -16,9 +16,20 @@ export class ManterPessoaJuridicaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(pessoaJuridica?:Pessoajuridica): void {
-    this.formularioPessoaJuridica.addControl('nomeContratoSocial', new FormControl(pessoaJuridica?.nomeContratoSocial));
     this.formularioPessoaJuridica.addControl('nomeFantasia', new FormControl(pessoaJuridica?.nomeFantasia));
-  
+    this.formularioPessoaJuridica.addControl('numInscricaoEstadual', new FormControl(pessoaJuridica?.numInscricaoEstadual));
+    this.formularioPessoaJuridica.addControl('valorCapitalSocial', new FormControl(pessoaJuridica?.valorCapitalSocial));
+    this.formularioPessoaJuridica.addControl('numInscricaoMunicipal', new FormControl(pessoaJuridica?.numInscricaoMunicipal));
+    this.formularioPessoaJuridica.addControl('contratoSocial', new FormControl(pessoaJuridica?.contratoSocial));
+    this.formularioPessoaJuridica.addControl('numRegistroJuntaComercial', new FormControl(pessoaJuridica?.numRegistroJuntaComercial));
+    this.formularioPessoaJuridica.addControl('dataRegistroJuntaComercial', new FormControl(pessoaJuridica?.dataRegistroJuntaComercial));
+    this.formularioPessoaJuridica.addControl('numUltimaAlteracaoContratoSocial', new FormControl(pessoaJuridica?.numUltimaAlteracaoContratoSocial));
+    this.formularioPessoaJuridica.addControl('dataUltimaAlteracaoContratoSocial', new FormControl(pessoaJuridica?.dataUltimaAlteracaoContratoSocial));
+    this.formularioPessoaJuridica.addControl('numRegistroRepresentacao', new FormControl(pessoaJuridica?.numRegistroRepresentacao));
+    this.formularioPessoaJuridica.addControl('dataRegistroRepresentacao', new FormControl(pessoaJuridica?.dataRegistroRepresentacao));
+    this.formularioPessoaJuridica.addControl('codNacionalidade', new FormControl(pessoaJuridica?.codNacionalidade));
+    //this.formularioPessoaJuridica.addControl('', new FormControl(pessoaJuridica?.bolMei));
+ 
   }
 
 }
