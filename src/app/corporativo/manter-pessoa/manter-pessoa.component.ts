@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Endereco } from '../classes/endereco';
 import { Pessoa } from '../classes/pessoa';
+import { Pessoafisica } from '../classes/pessoafisica';
 import { PessoaService } from '../services/pessoa.service';
 
 export interface PeriodicElement {
@@ -40,7 +42,7 @@ export class ManterPessoaComponent implements OnInit {
   public formularioPessoaJuridica:FormGroup = new FormGroup({});
   public formularioEnderecoPessoa:FormGroup = new FormGroup({});
 
-  public pessoas:Pessoa[] = [];
+  public pessoas:[] = [];
   public codTipoPessoa:Number=1;
   
 
@@ -51,10 +53,17 @@ export class ManterPessoaComponent implements OnInit {
       if(id){
         this.service.obter(id).subscribe(e=>{
           console.log(e);
+          this.criarFormPessoa(e);
+          this.criarFormPessoaFisica(e as Pessoafisica);
         });
       }
 
-      this.formularioPessoa = new FormGroup({
+      this.criarFormPessoa(new Pessoa());
+      this.criarFormPessoaFisica(new Pessoafisica());
+  }
+
+  criarFormPessoa(pessoa: Pessoa) {
+    this.formularioPessoa = new FormGroup({
       codTipoPessoa: new FormControl(pessoa ? pessoa?.codTipoPessoa : 1),
       nome: new FormControl(pessoa?.nome),
       email: new FormControl(pessoa?.email),
@@ -66,10 +75,24 @@ export class ManterPessoaComponent implements OnInit {
     });
   }
 
+  criarFormPessoaFisica(pessoaFisica: Pessoafisica) {
+    this.formularioPessoaFisica = new FormGroup({
+      codTipoPessoa: new FormControl(pessoaFisica.nomeMae),
+      nome: new FormControl(pessoaFisica?.nomePai),
+    });
+  }
+
+  criarFormEndereco(endereco: Endereco) {
+    this.formularioEnderecoPessoa = new FormGroup({
+      bairro: new FormControl(endereco.bairro),
+      cep: new FormControl(endereco?.cep),
+    });
+  }
+
   salvar():void{
     let pessoa:Pessoa;
      if(this.codTipoPessoa==1){
-      pessoa = {...this.formularioPessoa.value,...this.formularioPessoaFisica.value,};
+      pessoa = {...this.formularioPessoa.value,...this.formularioPessoaFisica.value};
     }else{
       pessoa = {...this.formularioPessoa.value,...this.formularioPessoaJuridica.value};
     }

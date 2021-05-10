@@ -18,7 +18,7 @@ export class PessoaService {
     return this.http.post <Pessoa> ('/corp/pessoas', pessoa);
   }
   
-  public excluir(id:Number): Observable<void> {
+  public deletar(id:Number): Observable<void> {
     return this.http.delete<void> ('/corp/pessoas/'+id);
   }
 

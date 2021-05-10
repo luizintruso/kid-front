@@ -20,12 +20,14 @@ export class ListarPessoaComponent implements OnInit {
     })
   }
 
-  editar(pessoa: Pessoa):void{
-    
+  deletar(pessoa:Pessoa):void{
+    this.service.deletar(pessoa.id).subscribe(e=>{
+      this.ngOnInit();
+    });
   }
 
-  excluir(pessoa:Pessoa):void{
-    
+  editar(pessoa: Pessoa):void{
+    console.log(pessoa);
   }
 
 }

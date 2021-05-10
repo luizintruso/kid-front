@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Pessoajuridica } from '../../classes/pessoajuridica';
 
 @Component({
@@ -8,6 +9,7 @@ import { Pessoajuridica } from '../../classes/pessoajuridica';
   styleUrls: ['./manter-pessoa-juridica.component.css']
 })
 export class ManterPessoaJuridicaComponent implements OnInit {
+  @Input() events: Observable<void>;
 
   @Input()
   public formularioPessoaJuridica: FormGroup;
@@ -16,6 +18,9 @@ export class ManterPessoaJuridicaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(pessoaJuridica?:Pessoajuridica): void {
+    if(this.events != null){
+      //this. = this.events.subscribe(() => console.log('ok'));
+    }
     this.formularioPessoaJuridica.addControl('nomeFantasia', new FormControl(pessoaJuridica?.nomeFantasia));
     this.formularioPessoaJuridica.addControl('numInscricaoEstadual', new FormControl(pessoaJuridica?.numInscricaoEstadual));
     this.formularioPessoaJuridica.addControl('valorCapitalSocial', new FormControl(pessoaJuridica?.valorCapitalSocial));
