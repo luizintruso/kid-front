@@ -48,6 +48,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SharingComponent
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     SharingRoutingModule,
     A11yModule,

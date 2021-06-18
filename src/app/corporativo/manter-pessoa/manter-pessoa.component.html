@@ -1,0 +1,97 @@
+<div class="card shadow mb-4">
+  <!-- Card Header - Dropdown -->
+  <div
+      class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+      <div class="dropdown no-arrow">
+        
+      </div>
+  </div>
+  <!-- Card Body -->
+  <div class="card-body">
+
+    <mat-tab-group>
+      <mat-tab label="Pessoa"> 
+        <br>
+
+        <form [formGroup]="formularioPessoa" (ngSubmit)="salvar()">
+
+          <div class="form-group row">
+            <label for="inputNome" class="col-sm-1 col-form-label">Tipo Pessoa :</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="codTipoPessoa" id="pessoaFisica" [value]="1" checked
+                  formControlName="codTipoPessoa" (change)="changePessoa($event)">
+              <label class="form-check-label" for="pessoaFisica" >Física</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="codTipoPessoa" id="pessoaJuridica" [value]="2"  
+                  formControlName="codTipoPessoa" (change)="changePessoa($event)">
+              <label class="form-check-label" for="pessoaJuridica">Jurídica</label>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputNome" class="col-sm-1 col-form-label">Nome :</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputNome" formControlName="nome" placeholder="Nome" >
+              <div class="valid-tooltip">
+                Please choose a unique and valid username.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row" >
+            <label for="inputCpfCnpj" class="col-sm-1 col-form-label">Cpf/Cnpj :</label>
+            <div class="col-sm-4">
+              <input type="number" class="form-control" id="inputCpfCnpj" formControlName="numCpfCnpj" placeholder="Cpf/Cnpj" >
+            </div>
+
+            <label for="inputEmail" class="col-sm-1 col-form-label">E-mail :</label>
+            <div class="col-sm-4">
+              <input type="email" class="form-control" id="inputEmail" formControlName="email" placeholder="name@example.com">
+            </div>
+          </div>
+
+          
+          <div class="form-group row" >
+            <label for="inputdddTelefone" class="col-sm-1 col-form-label">DDD:</label>
+            <div class="col-sm-1">
+              <input type="number" class="form-control" id="inputdddTelefone" formControlName="dddTelefone" >
+            </div>
+            <label for="inputtelefone" class="col-sm-1 col-form-label">Telefone :</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" id="inputtelefone" formControlName="telefone"  >
+            </div>
+            <label for="inputdddCelular" class="col-sm-1 col-form-label">DDD :</label>
+            <div class="col-sm-1">
+              <input type="number" class="form-control" id="inputdddCelular" formControlName="dddCelular" >
+            </div>
+            <label for="inputcelular" class="col-sm-1 col-form-label">Celular :</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" id="inputcelular" formControlName="celular"  >
+            </div>
+          </div>
+
+       </form>  
+        </mat-tab>
+          <mat-tab label="Dados Pessoa Física" [disabled]="codTipoPessoa==2" > 
+            <app-manter-pessoa-fisica [formularioPessoaFisica]="formularioPessoaFisica"></app-manter-pessoa-fisica>
+          </mat-tab>
+          <mat-tab label="Dados Pessoa Jurídica" [disabled]="codTipoPessoa==1"> 
+            <app-manter-pessoa-juridica [formularioPessoaJuridica]="formularioPessoaJuridica"></app-manter-pessoa-juridica>
+          </mat-tab>
+          <mat-tab label="Endereço"> 
+            <app-manter-endereco-pessoa [formularioEnderecoPessoa]="formularioEnderecoPessoa"></app-manter-endereco-pessoa>
+          </mat-tab>
+      </mat-tab-group>
+
+      <div>
+        <button mat-raised-button color="primary" type="submit">Salvar</button>
+      </div>
+
+  </div>
+</div>
+
+
+
+

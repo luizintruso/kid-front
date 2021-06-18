@@ -5,12 +5,22 @@ import { CorporativoRoutingModule } from './corporativo-routing.module';
 import { CorporativoComponent } from './corporativo.component';
 import { SharingModule } from '../sharing/sharing.module';
 import { ManterUFComponent } from './manter-uf/manter-uf.component';
+import { ManterPessoaComponent } from './manter-pessoa/manter-pessoa.component';
+import { ManterPessoaFisicaComponent } from './manter-pessoa/manter-pessoa-fisica/manter-pessoa-fisica.component';
+import { ManterPessoaJuridicaComponent } from './manter-pessoa/manter-pessoa-juridica/manter-pessoa-juridica.component';
+import { ManterEnderecoPessoaComponent } from './manter-pessoa/manter-endereco-pessoa/manter-endereco-pessoa.component';
+import { ListarPessoaComponent } from './listar-pessoa/listar-pessoa.component';
 
 
 @NgModule({
   declarations: [
     CorporativoComponent,
-    ManterUFComponent
+    ManterUFComponent,
+    ManterPessoaComponent,
+    ManterPessoaFisicaComponent,
+    ManterPessoaJuridicaComponent,
+    ManterEnderecoPessoaComponent,
+    ListarPessoaComponent
   ],
   imports: [
     CommonModule,
