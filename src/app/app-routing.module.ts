@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './sharing/guard/auth.guard';
 
 const routes: Routes = [{ path: 'sharing', loadChildren: () => import('./sharing/sharing.module').then(m => m.SharingModule), canActivate: [AuthGuard] }, 
-                        { path: 'corporativo', loadChildren: () => import('./corporativo/corporativo.module').then(m => m.CorporativoModule), canActivate: [AuthGuard] }
+                        { path: 'corporativo', loadChildren: () => import('./corporativo/corporativo.module').then(m => m.CorporativoModule), canActivate: [AuthGuard] },
+                        { path: 'estoque', loadChildren: () => import('./estoque/estoque.module').then(m => m.EstoqueModule) }
                       ];
 
 @NgModule({

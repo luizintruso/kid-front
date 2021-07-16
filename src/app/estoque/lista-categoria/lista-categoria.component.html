@@ -1,0 +1,53 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+            href="https://datatables.net">official DataTables documentation</a>.</p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div>
+        <div class="card-body">
+            <ng-container *ngIf="dataSource$ | async as dataSource">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Nome</th>
+                                <th>Sigla</th>
+                                <th>Categoria Pai</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Nome</th>
+                                <th>Sigla</th>
+                                <th>Categoria Pai</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr *ngFor="let categoria of dataSource.content; index as i">
+                                <td>{{categoria.id}}</td>
+                                <td>{{categoria.nome}}</td>
+                                <td>{{categoria.sigla}}</td>
+                                <td>2011/01/25</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {{dataSource.totalElements}}
+                <app-paginador [dataSource]="dataSource"></app-paginador>          
+                
+            </ng-container>
+        </div>
+
+    </div>
+
+</div>

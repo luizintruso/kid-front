@@ -49,11 +49,15 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RestApiService } from './services/rest-api-service';
+import { PaginadorComponent } from './paginador/paginador.component';
+
 
 
 @NgModule({
   declarations: [
-    SharingComponent
+    SharingComponent,
+    PaginadorComponent
   ],
   imports: [
     HttpClientModule,
@@ -105,8 +109,10 @@ import { HttpClientModule } from '@angular/common/http';
     ScrollingModule,
     ReactiveFormsModule,
   ],
+  providers:[RestApiService],
   exports: [
     SharingComponent,
+    PaginadorComponent,
     A11yModule,
     ClipboardModule,
     CdkStepperModule,
@@ -151,7 +157,7 @@ import { HttpClientModule } from '@angular/common/http';
     OverlayModule,
     PortalModule,
     ScrollingModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharingModule { }
