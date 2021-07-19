@@ -34,6 +34,22 @@ export class ManterPessoaJuridicaComponent implements OnInit {
     this.formularioPessoaJuridica.addControl('dataRegistroRepresentacao', new FormControl(pessoaJuridica?.dataRegistroRepresentacao));
     this.formularioPessoaJuridica.addControl('codNacionalidade', new FormControl(pessoaJuridica?.codNacionalidade));
     //this.formularioPessoaJuridica.addControl('', new FormControl(pessoaJuridica?.bolMei));
+
+    /*
+    this.formularioPessoaJuridica = new FormGroup({
+      nomePai: new FormControl( pessoaJuridica?.nomeFantasia),
+      nomeMae: new FormControl(pessoaJuridica?.numInscricaoEstadual),
+      nacionalidade: new FormControl(pessoaJuridica?.valorCapitalSocial),
+      naturalidade: new FormControl(pessoaJuridica?.numInscricaoMunicipal),
+      rg: new FormControl(pessoaJuridica?.contratoSocial),
+      rgOrgaoEmissor: new FormControl(pessoaJuridica?.numRegistroJuntaComercial),
+      dataNascimento: new FormControl(pessoaJuridica?.dataRegistroJuntaComercial),
+      codEstadoCivil: new FormControl(pessoafisica?.numUltimaAlteracaoContratoSocial),
+      rgOrgaoEmissor: new FormControl(pessoaJuridica?.dataUltimaAlteracaoContratoSocial),
+      dataNascimento: new FormControl(pessoaJuridica?.numRegistroRepresentacao),
+      codEstadoCivil: new FormControl(pessoafisica?.numUltimaAlteracaoContratoSocial)
+      */
+ 
  
   }
 

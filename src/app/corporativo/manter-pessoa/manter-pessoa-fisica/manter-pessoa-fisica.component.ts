@@ -1,6 +1,6 @@
+import { Pessoafisica } from './../../classes/pessoafisica';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Pessoafisica } from '../../classes/pessoafisica';
 
 @Component({
   selector: 'app-manter-pessoa-fisica',
@@ -17,6 +17,7 @@ export class ManterPessoaFisicaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(pessoafisica?:Pessoafisica): void {
+    /*
     this.formularioPessoaFisica.addControl('nomePai', new FormControl(pessoafisica?.nomePai));
     this.formularioPessoaFisica.addControl('nomeMae', new FormControl(pessoafisica?.nomeMae));
     this.formularioPessoaFisica.addControl('nacionalidade', new FormControl(pessoafisica?.nacionalidade));
@@ -27,10 +28,26 @@ export class ManterPessoaFisicaComponent implements OnInit {
     this.formularioPessoaFisica.addControl('dataNascimento', new FormControl(pessoafisica?.dataNascimento));
     //this.formularioPessoaFisica.addControl('codEstadoCivil', new FormControl(pessoafisica?.codEstadoCivil));
     this.formularioPessoaFisica.addControl('codTipoSexo', new FormControl(pessoafisica?.codTipoSexo));
+    */
+
+    this.formularioPessoaFisica = new FormGroup({
+      nomePai: new FormControl( pessoafisica?.nomePai),
+      nomeMae: new FormControl(pessoafisica?.nomeMae),
+      nacionalidade: new FormControl(pessoafisica?.nacionalidade),
+      naturalidade: new FormControl(pessoafisica?.naturalidade),
+      rg: new FormControl(pessoafisica?.rg),
+      rgOrgaoEmissor: new FormControl(pessoafisica?.rgOrgaoEmissor),
+      dataNascimento: new FormControl(pessoafisica?.dataNascimento),
+      codEstadoCivil: new FormControl(pessoafisica?.codEstadoCivil),
+      codTipoSexo: new FormControl(pessoafisica?.codTipoSexo)
+    });
   }
 
   changeSexo(e) {
     this.codTipoSexo = this.formularioPessoaFisica.controls.codTipoSexo.value;
   }
 
+  public preencherPessoaFisica (pessoaFisica: Pessoafisica) :void {
+    this.ngOnInit(pessoaFisica);
+  }
 }

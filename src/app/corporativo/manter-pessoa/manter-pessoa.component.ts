@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ManterPessoaFisicaComponent } from './manter-pessoa-fisica/manter-pessoa-fisica.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Endereco } from '../classes/endereco';
 import { Pessoa } from '../classes/pessoa';
 import { Pessoafisica } from '../classes/pessoafisica';
@@ -35,12 +36,17 @@ export class ManterPessoaComponent implements OnInit {
 
   dataSource = ELEMENT_DATA;
 
-  constructor(private service:PessoaService, private route: ActivatedRoute) {}
+  constructor(private service:PessoaService, 
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   public formularioPessoa: FormGroup;
   public formularioPessoaFisica:FormGroup = new FormGroup({});
   public formularioPessoaJuridica:FormGroup = new FormGroup({});
   public formularioEnderecoPessoa:FormGroup = new FormGroup({});
+  
+  @ViewChild('pessoafisica') componentePessoa: ManterPessoaFisicaComponent;
 
   public pessoas:[] = [];
   public codTipoPessoa:Number=1;
@@ -52,14 +58,15 @@ export class ManterPessoaComponent implements OnInit {
 
       if(id){
         this.service.obter(id).subscribe(e=>{
-          console.log(e);
+          //console.log(e as Pessoafisica);
+          this.componentePessoa.preencherPessoaFisica(e as Pessoafisica);
           this.criarFormPessoa(e);
-          this.criarFormPessoaFisica(e as Pessoafisica);
+          //this.criarFormPessoaFisica(e as Pessoafisica);
         });
       }
 
+     
       this.criarFormPessoa(new Pessoa());
-      this.criarFormPessoaFisica(new Pessoafisica());
   }
 
   criarFormPessoa(pessoa: Pessoa) {
@@ -92,14 +99,14 @@ export class ManterPessoaComponent implements OnInit {
   salvar():void{
     let pessoa:Pessoa;
      if(this.codTipoPessoa==1){
-      pessoa = {...this.formularioPessoa.value,...this.formularioPessoaFisica.value};
+      pessoa = {...this.formularioPessoa.value,...this.componentePessoa.formularioPessoaFisica.value};
     }else{
       pessoa = {...this.formularioPessoa.value,...this.formularioPessoaJuridica.value};
     }
     pessoa.endereco = this.formularioEnderecoPessoa.value;
 
     this.service.salvar(pessoa).subscribe(e=>{
-      this.ngOnInit();
+      this.router.navigate(['/corporativo/listarpessoa'])
     });
   }
 

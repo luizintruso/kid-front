@@ -14,7 +14,7 @@
       <mat-tab label="Pessoa"> 
         <br>
 
-        <form [formGroup]="formularioPessoa" (ngSubmit)="salvar()">
+        <form [formGroup]="formularioPessoa" >
 
           <div class="form-group row">
             <label for="inputNome" class="col-sm-1 col-form-label">Tipo Pessoa :</label>
@@ -75,18 +75,18 @@
        </form>  
         </mat-tab>
           <mat-tab label="Dados Pessoa Física" [disabled]="codTipoPessoa==2" > 
-            <app-manter-pessoa-fisica [formularioPessoaFisica]="formularioPessoaFisica"></app-manter-pessoa-fisica>
+            <app-manter-pessoa-fisica [formularioPessoaFisica]="formularioPessoaFisica"  #pessoafisica></app-manter-pessoa-fisica>
           </mat-tab>
           <mat-tab label="Dados Pessoa Jurídica" [disabled]="codTipoPessoa==1"> 
-            <app-manter-pessoa-juridica [formularioPessoaJuridica]="formularioPessoaJuridica"></app-manter-pessoa-juridica>
+            <app-manter-pessoa-juridica [formularioPessoaJuridica]="formularioPessoaJuridica" #pessoajurica></app-manter-pessoa-juridica>
           </mat-tab>
           <mat-tab label="Endereço"> 
-            <app-manter-endereco-pessoa [formularioEnderecoPessoa]="formularioEnderecoPessoa"></app-manter-endereco-pessoa>
+            <app-manter-endereco-pessoa [formularioEnderecoPessoa]="formularioEnderecoPessoa" #pessoaendereco></app-manter-endereco-pessoa>
           </mat-tab>
       </mat-tab-group>
 
       <div>
-        <button mat-raised-button color="primary" type="submit">Salvar</button>
+        <button mat-raised-button color="primary" type="button" (click)="salvar()">Salvar</button>
       </div>
 
   </div>
